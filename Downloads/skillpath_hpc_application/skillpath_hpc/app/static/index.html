@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0c1e3c">
+  <title>SkillPath — Personalized Learning</title>
+  <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand"><span class="brand-mark">S</span><div><b>SkillPath</b><small>LEARN WITH DIRECTION</small></div></div>
+      <div class="side-label">WORKSPACE</div>
+      <button class="nav-link active" data-view="dashboard"><span>◫</span> Overview</button>
+      <button class="nav-link" data-view="profile"><span>◎</span> My profile</button>
+      <button class="nav-link" data-view="roadmap"><span>↗</span> Learning roadmap</button>
+      <button class="nav-link" data-view="skills"><span>⌘</span> Skill recommendations</button>
+      <button class="nav-link" data-view="benchmark"><span>▥</span> HPC benchmark</button>
+      <button class="nav-link" data-view="about"><span>ⓘ</span> Project information</button>
+      <div class="sidebar-bottom">
+        <div class="sdg-card"><div class="sdg-icon">4</div><div><b>Quality Education</b><small>UN Sustainable Development Goal</small></div></div>
+        <p>HPC PBL · Group 42</p>
+      </div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><div><div class="eyebrow">PERSONALIZED DEVELOPMENT</div><h1 id="page-title">Your learning overview</h1></div><div class="top-actions"><span class="status-dot"></span><span id="student-label">Demo Student</span><button class="avatar" id="profile-shortcut">DS</button></div></header>
+      <div id="notice" class="notice hidden" role="status"></div>
+      <section id="view-dashboard" class="view">
+        <div class="welcome panel"><div><span class="pill">YOUR NEXT CHAPTER STARTS HERE</span><h2>Build skills with a clear direction.</h2><p>Turn your career goal into a practical, prioritized learning path — one skill at a time.</p><button class="btn btn-light" data-go="profile">Personalize my roadmap <span>→</span></button></div><div class="welcome-art"><div class="orb orb-one"></div><div class="orb orb-two"></div><div class="orbit"><span>AI</span><span>DSA</span><span>SQL</span><span>UX</span></div><div class="center-icon">✦</div></div></div>
+        <div class="section-head"><div><div class="eyebrow">YOUR PROGRESS</div><h2>Learning at a glance</h2></div><span class="subtle" id="career-chip">Career path</span></div>
+        <div class="metric-grid">
+          <article class="metric-card"><div class="metric-top"><span>Identified skill gaps</span><span class="metric-icon purple">⌁</span></div><div class="metric-number" id="metric-gaps">—</div><small>Skills to build or improve</small></article>
+          <article class="metric-card"><div class="metric-top"><span>High-priority gaps</span><span class="metric-icon orange">↑</span></div><div class="metric-number" id="metric-high">—</div><small>Important skills to focus on</small></article>
+          <article class="metric-card"><div class="metric-top"><span>Learning hours</span><span class="metric-icon blue">◷</span></div><div class="metric-number" id="metric-hours">—</div><small>Estimated roadmap effort</small></article>
+          <article class="metric-card"><div class="metric-top"><span>Roadmap completed</span><span class="metric-icon green">✓</span></div><div class="metric-number" id="metric-progress">—</div><div class="progress-track"><div id="progress-fill" class="progress-fill"></div></div></article>
+        </div>
+        <div class="content-grid">
+          <article class="panel roadmap-preview"><div class="panel-heading"><div><div class="eyebrow">YOUR PLAN</div><h3>Recommended next steps</h3></div><button class="text-button" data-go="roadmap">View roadmap →</button></div><div id="next-steps" class="step-list"><div class="loading">Loading your learning path…</div></div></article>
+          <article class="panel activity-panel"><div class="panel-heading"><div><div class="eyebrow">RECENT ACTIVITY</div><h3>Keep your momentum</h3></div><span class="soft-badge">LIVE</span></div><div id="activity-list" class="activity-list"></div><div class="callout"><span>✦</span><div><b>Small steps compound.</b><p>Log your learning and revisit your plan as your skills grow.</p></div></div></article>
+        </div>
+      </section>
+      <section id="view-profile" class="view hidden">
+        <div class="intro-row"><div><div class="eyebrow">STEP 01 · YOUR STARTING POINT</div><h2>Tell us where you want to go.</h2><p>Recommendations adapt to your goal, current skills, interests, and available time.</p></div><span class="pill">Profile & assessment</span></div>
+        <form id="profile-form" class="panel form-panel">
+          <div class="form-section"><div class="form-section-title"><span>01</span><div><h3>About you</h3><p>A few details to tailor the experience.</p></div></div>
+            <div class="form-grid"><label>Preferred name<input id="name" name="name" maxlength="80" required value="Demo Student"></label><label>Education level<select id="education_level"><option>Undergraduate</option><option>Graduate</option><option>Diploma</option><option>School student</option><option>Working professional</option></select></label><label>Branch / degree<input id="branch" value="B.Tech CSE-AI" maxlength="100"></label><label>Current semester<input id="semester" type="number" min="1" max="12" value="3"></label></div>
+          </div>
+          <div class="form-section"><div class="form-section-title"><span>02</span><div><h3>Your career direction</h3><p>Choose a goal to identify relevant skills.</p></div></div>
+            <div class="form-grid"><label class="span-two">Target career<select id="career_goal" required></select></label><label>Hours available per week<input id="hours_per_week" type="number" min="1" max="80" value="6" required></label><label>Preparation timeframe<select id="timeframe_weeks"><option value="4">4 weeks</option><option value="8">8 weeks</option><option value="12">12 weeks</option><option value="16" selected>16 weeks</option><option value="24">24 weeks</option><option value="52">1 year</option></select></label><label>Preferred learning format<select id="learning_format"><option>Mixed</option><option>Video</option><option>Reading</option><option>Hands-on projects</option><option>Interactive exercises</option></select></label></div>
+            <label class="block-label">Interests <small>Choose any that fit you</small></label><div class="chip-grid" id="interest-options"><label class="check-chip"><input type="checkbox" value="python">Python</label><label class="check-chip"><input type="checkbox" value="ai">AI / ML</label><label class="check-chip"><input type="checkbox" value="data">Data</label><label class="check-chip"><input type="checkbox" value="web">Web</label><label class="check-chip"><input type="checkbox" value="design">Design</label><label class="check-chip"><input type="checkbox" value="security">Security</label><label class="check-chip"><input type="checkbox" value="cloud">Cloud</label><label class="check-chip"><input type="checkbox" value="communication">Communication</label></div>
+          </div>
+          <div class="form-section"><div class="form-section-title"><span>03</span><div><h3>Assess your current skills</h3><p>Set your current level. Not listed or unassessed skills are treated as gaps.</p></div></div><div id="skill-assessment" class="skill-assessment"><p class="subtle">Choose a career to load relevant skills.</p></div>
+            <div class="quiz-panel"><div class="panel-heading"><div><div class="eyebrow">OPTIONAL KNOWLEDGE CHECK</div><h3>Python & ML foundations quiz</h3><p class="subtle">Five quick questions; this is an indicative self-check, not certification.</p></div><button type="button" class="btn btn-secondary" id="load-quiz">Load quiz</button></div><div id="quiz-questions" class="quiz-questions"><p class="subtle">Load the optional quiz to check your foundations.</p></div><button type="button" class="btn btn-primary" id="submit-quiz" disabled>Score my answers</button><div id="quiz-result" aria-live="polite"></div></div>
+          </div>
+          <div class="form-footer"><p>Skill levels are self-assessed and can be updated as you learn.</p><button class="btn btn-primary" type="submit">Generate my learning path <span>→</span></button></div>
+        </form>
+      </section>
+      <section id="view-roadmap" class="view hidden">
+        <div class="intro-row"><div><div class="eyebrow">STEP 03 · YOUR PLAN</div><h2>A roadmap built around you.</h2><p>Prerequisites are considered so foundational skills can come before advanced topics.</p></div><button class="btn btn-primary" id="regenerate-roadmap">Recalculate roadmap ↻</button></div>
+        <div id="roadmap-summary" class="roadmap-summary"></div><div id="roadmap-milestones" class="milestone-grid"></div><div id="roadmap-warning"></div><div id="roadmap-list" class="roadmap-list"></div>
+      </section>
+      <section id="view-skills" class="view hidden">
+        <div class="intro-row"><div><div class="eyebrow">STEP 02 · WHY THESE SKILLS</div><h2>Skill recommendations</h2><p>Explore the gap, target level, priority, and reason behind every suggestion.</p></div><span class="pill" id="recommendation-count">Ranked by relevance</span></div>
+        <div class="filter-row"><label>Priority<select id="priority-filter"><option value="all">All priorities</option><option value="High">High</option><option value="Medium">Medium</option><option value="Practice">Practice</option></select></label><label>Category<select id="category-filter"><option value="all">All categories</option></select></label><label>Status<select id="status-filter"><option value="all">All statuses</option><option value="not_started">Not started</option><option value="in_progress">In progress</option><option value="completed">Completed</option></select></label></div>
+        <div id="recommendation-list" class="recommendation-list"></div>
+        <div class="formula-panel panel"><div><div class="eyebrow">EXPLAINABLE BY DESIGN</div><h3>How the score is calculated</h3><p>Gap (40%) + skill importance (25%) + interest match (15%) + prerequisite readiness (10%) + time feasibility (10%). Each component is normalized to a 0–1 range. Scores are transparent rule-based estimates, not model confidence.</p></div><div class="formula-badge">100<span>point scale</span></div></div>
+      </section>
+      <section id="view-benchmark" class="view hidden">
+        <div class="intro-row"><div><div class="eyebrow">HIGH PERFORMANCE COMPUTING</div><h2>Measure before you claim.</h2><p>Run a local experiment comparing sequential recommendation calls with a thread-pool version. Results are measured on your current machine.</p></div><span class="pill">Experimental evaluation</span></div>
+        <div class="panel benchmark-panel"><div class="form-grid"><label>Number of profiles<select id="bench-profiles"><option value="25">25 profiles</option><option value="100" selected>100 profiles</option><option value="500">500 profiles</option><option value="1000">1,000 profiles</option><option value="5000">5,000 profiles</option></select></label><label>Repeated runs<select id="bench-repeats"><option value="1">1 run</option><option value="3" selected>3 runs</option><option value="5">5 runs</option></select></label></div><button class="btn btn-primary" id="run-benchmark">Run benchmark <span>→</span></button><div id="benchmark-result" class="benchmark-result"></div></div>
+        <div class="notice neutral"><b>Interpretation:</b> threads may be slower for CPU-bound Python work. This is a small local benchmark, not proof of cluster-scale performance or parallel speedup.</div>
+      </section>
+
+      <section id="view-about" class="view hidden">
+        <div class="intro-row"><div><div class="eyebrow">PROJECT DOCUMENTATION</div><h2>How SkillPath works</h2><p>A working prototype for the Personalized Skill Development Recommendation System, HPC course CCSAI0302, Group 42.</p></div><span class="pill">SDG 4 · Quality Education</span></div>
+        <article class="panel info-panel"><h3>Problem statement</h3><p>Students may find it difficult to choose technical and soft skills aligned with their interests, current knowledge, career goals and industry needs. SkillPath compares a learner profile with a small career-to-skill knowledge base and identifies gaps.</p>
+          <h3>Objectives</h3><ul><li>Capture learner interests and existing skills.</li><li>Compare proficiency with system-defined career targets.</li><li>Rank skill gaps and explain recommendations.</li><li>Generate a prerequisite-aware learning roadmap.</li><li>Track progress and recalculate dashboard metrics from saved records.</li></ul>
+          <h3>Architecture</h3><div class="architecture-flow"><span>Profile form</span><b>→</b><span>FastAPI validation</span><b>→</b><span>Skill-gap engine</span><b>→</b><span>Roadmap</span><b>→</b><span>SQLite + dashboard</span></div>
+          <h3>Recommendation method</h3><p>Gap score 40%, skill importance 25%, interest match 15%, prerequisite readiness 10%, and time feasibility 10%. The resulting score is bounded to 0–100 and includes a written explanation. This is a deterministic rule-based recommender, not a trained machine-learning model.</p>
+          <h3>HPC connection</h3><p>The benchmark runs independent recommendation workloads sequentially and with a thread pool, checks output consistency, and records timing, throughput and environment details. It is a small local experiment, not a distributed or cluster-scale implementation. Threading can be slower for CPU-bound Python tasks.</p>
+          <h3>Technology stack</h3><p>Python, FastAPI, Pydantic, SQLite, HTML, CSS, JavaScript and Pytest. The frontend is intentionally served directly by FastAPI to keep local setup simple; React/TypeScript, Tailwind and Recharts are not used in this version.</p>
+          <h3>Dataset, limitations and future scope</h3><p>The initial knowledge base is manually curated and includes nine career paths. It is not an official industry dataset; target levels are illustrative system recommendations. Self-reported skill levels and the short optional quiz are not validated assessments. Authentication, multi-user authorization, mentor feedback, external course catalogue integration, and real cluster/distributed processing remain future work.</p>
+          <p>The uploaded Month 1 and Month 2 reports document problem understanding, research, feature planning and a proposed workflow; they do not document a completed prototype or measured test results. This application is the implemented prototype for the next integration and validation stage described in Report III.</p>
+        </article>
+      </section>
+      <footer class="footer"><span>SkillPath · Personalized Skill Development Recommendation System</span><span>HPC PBL · SDG 4 Quality Education</span></footer>
+    </main>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{
+  "results": [
+    {
+      "profiles": 25,
+      "repeats": 2,
+      "workers": 3,
+      "environment": {
+        "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+        "os": "Linux-6.18.55-x86_64-with-glibc2.41",
+        "cpu_count": 3
+      },
+      "sequential_seconds_each_run": [
+        0.001542,
+        0.001487
+      ],
+      "threaded_seconds_each_run": [
+        0.003209,
+        0.002762
+      ],
+      "sequential_average_seconds": 0.001514,
+      "threaded_average_seconds": 0.002986,
+      "sequential_profiles_per_second": 16507.69,
+      "threaded_profiles_per_second": 8373.8,
+      "threaded_speedup": 0.507,
+      "interpretation": "Measured local result only. Threading may be slower for CPU-bound Python work; this is not a cluster-scale result."
+    },
+    {
+      "profiles": 100,
+      "repeats": 2,
+      "workers": 3,
+      "environment": {
+        "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+        "os": "Linux-6.18.55-x86_64-with-glibc2.41",
+        "cpu_count": 3
+      },
+      "sequential_seconds_each_run": [
+        0.005436,
+        0.006037
+      ],
+      "threaded_seconds_each_run": [
+        0.007734,
+        0.007506
+      ],
+      "sequential_average_seconds": 0.005737,
+      "threaded_average_seconds": 0.00762,
+      "sequential_profiles_per_second": 17431.86,
+      "threaded_profiles_per_second": 13123.07,
+      "threaded_speedup": 0.753,
+      "interpretation": "Measured local result only. Threading may be slower for CPU-bound Python work; this is not a cluster-scale result."
+    }
+  ]
+}
